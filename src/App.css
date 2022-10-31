@@ -21,7 +21,37 @@
 
 .btn:hover{
   color: white;
-  background-color:black
+  background-color:rgb(253, 229, 229)
+}
+.btn-1{
+  background-color: rgb(6, 124, 59);
+  border: #61dafb;
+}
+
+.list{
+  color:red
+}
+
+#select{
+  margin: 50px
+}
+
+.d{
+  display:"flex";
+  flex-direction: column;
+  
+}
+
+.listdiv{
+  border:1px solid skyblue ;
+   width:"300px"
+}
+ 
+
+
+.btn-2{
+  border: white;
+  color:rgb(241, 62, 62)
 }
 
 
