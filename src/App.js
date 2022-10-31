@@ -25,18 +25,9 @@ function App() {
 
 
   const [show,setshow]=useState(false)
-  
-  const [email,setemail]=useState("");
   const [segment_name,setsegment_name]=useState("");
   const [select ,setselect]=useState({});
-   const [Firstname,setFirstname]=useState("first_name")
-   const [lastname,setlastname]=useState("last_name")
-   const [gender,setgender]=useState("gender")
-   const [age,setage]=useState("age")
-   const [city,setcity]=useState("city")
-   const [accountname,setaccountname]=useState("account_name")
-   const [state,setstate]=useState("state")
-   const [data,setdata]=useState({});
+   
 
 
 
@@ -93,51 +84,23 @@ const reset=()=>{
 
 
 const plus=()=>{
-      if(schema.length==0){
-      alert("please select option")
-      }
-      if(schema!==0){
-  //console.log(schema)
+      
+  
       var a=[...schema,select]
       setschema(a)
       console.log(a)
        reset()
       
-      }
+      
 }
 
 
-{/*
-const Add=()=>{
-  var s=[];
-  Object.keys(s).map((v)=>{
-    console.log(s[v])
-    })
-   schema.map((v)=>{
-    return 
-       <div>{v}</div>
-    
-  }
-}  
+
   
-
-*/}
-
-
-    
-
-   
-  //   const optionList =Object.keys(options).map((k) => {
-     // console.log(options)
-       //return (
-       //  <option key={k} value={options[k].value}>{options[k].lable}</option>
-     //  )
-       
-   //  })
 
 
      const optionList =options.map((k,i) => {
-      // console.log(options)
+    
         return (
           <option key={i} value={options[i].value}>{options[i].lable}</option>
         )
@@ -154,7 +117,7 @@ const Add=()=>{
 
     <div className="App">
      
-     <button className=" btn m-2"      onClick={()=>handleshow()}>Save Segment</button>
+     <button className=" btn btn-default m-2"      onClick={()=>handleshow()}>Save Segment</button>
 
 
 <Modal show={show}   >
@@ -173,14 +136,20 @@ const Add=()=>{
  onChange={(e)=>{setsegment_name(e.target.value)}} ></input><br/>
 
 <label className="lable "> To save your segment,you need to add schemas to your query</label>
-  <div classname="d-flex"  style={{border:"1px solid skyblue" , width:"400px",display:"flex",flexDirection:"column"}} >
+  <div className="listdiv"  >
   
     
      {schema.map((v,i)=>{
-      console.log(v.lable)
-      return   <select   className='form-select' key={i}   defaultValue={v.lable}     onChange={ handleChange}>
+      //console.log(v.lable)
+      return<div className='d'>    
+      <ul>
+       <li className='list'>
+         <select   className='form-select '   defaultValue={v.lable}     onChange={ handleChange}>
              {optionList}
       </select>
+      </li>
+      </ul>
+      </div>
       
     
      })}
@@ -190,7 +159,7 @@ const Add=()=>{
 
    
   
- <select id="select" name="select" style={{margin:"50px"}}   onChange={handleChange}  >
+ <select id="select" name="select"   onChange={handleChange}  >
     <option value="none" selected disabled >add new segment</option>
      {optionList}
     </select><br/>
@@ -200,8 +169,8 @@ const Add=()=>{
 </Modal.Body>
 
 <Modal.Footer>
-    <button  className="btn"  onClick={()=>{Register()}} >save segment</button>
-    <button className="btn" onClick={handleClose}> cancel</button>
+    <button  className=" btn-1"  onClick={()=>{Register()}} >save segment</button>
+    <button className="btn-2" onClick={handleClose}> cancel</button>
 
 </Modal.Footer>
 </Modal>
